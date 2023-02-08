@@ -1,0 +1,29 @@
+﻿@if (ViewBag.ErrorTitle == null)
+{
+    <h3>
+        An Error occured while processing your request. Support team is working on fix.
+    </h3>
+    <h5> PLease drop email to support@gmail.com</h5>
+    <hr />
+    <h3>Exception Details </h3>
+
+    <div class="alert alert-danger">
+        <h5>Exception Path </h5><hr />
+        <p>@ViewBag.ExceptionPath</p>
+    </div>
+
+    <div class="alert alert-danger">
+        <h5>Exception Message </h5><hr />
+        <p>@ViewBag.ExceptionMessage</p>
+    </div>
+
+    <div class="alert alert-danger">
+        <h5>Exception Stack Trace </h5><hr />
+        <p>@ViewBag.Stacktrace</p>
+    </div>
+}
+else
+{
+    <h1 class="text-danger"> @ViewBag.ErrorTitle</h1>
+    <h1 class="text-danger"> @ViewBag.ErrorMessage</h1>
+}

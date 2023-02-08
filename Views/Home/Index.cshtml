@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EmployeeManagement.Models.Employee>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<div class="card-deck">
+    @foreach (var emp in Model)
+    {
+
+        var photoPath = "~/Images/" + (emp.PhotoPath ?? "noimage.jpg");
+
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@emp.Name</h3>
+            </div>
+            <img class="card-img-top imageThumbnail" src="@photoPath" height="100" asp-append-version="true" />
+            <div class="card-footer text-center">
+
+                <a asp-contoller="home" asp-action="details" asp-route-id="@emp.Id" 
+                   class="btn btn-primary m-1">View</a>
+
+                @*<a href="#" class="btn btn-primary">View</a>*@
+
+                <a asp-action="edit" asp-controller="home" asp-route-id="@emp.Id" 
+                   class="btn btn-primary m-1">Edit</a>
+
+                <a href="#" class="btn btn-danger m-1">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+@*<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Department</td>
+                        <td>@emp.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+    </html>*@
